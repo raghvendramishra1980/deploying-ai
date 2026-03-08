@@ -18,6 +18,8 @@ _SentenceTransformer = None
 def _get_sentence_transformer():
     """Import sentence_transformers only when needed; return None if import fails."""
     global _SentenceTransformer
+    if _SentenceTransformer is False:
+        return None  # already tried and failed
     if _SentenceTransformer is not None:
         return _SentenceTransformer
     try:
